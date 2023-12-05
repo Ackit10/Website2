@@ -1,0 +1,44 @@
+@page
+@model Murhpys_Electronic_Shop.Pages.EmailsDatabase.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    .form-group {
+        margin:4%;
+    }
+</style>
+<div class=" AdminPanel">
+<h4>Contact with us</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Emails.FirstName" class="form-control" placeholder="First Name"/>
+                <span asp-validation-for="Emails.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Emails.LastName" class="form-control" placeholder="Last Name"/>
+                <span asp-validation-for="Emails.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Emails.Email" class="form-control" placeholder="Email address"/>
+                <span asp-validation-for="Emails.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <textarea asp-for="Emails.Description" class="form-control" rows="6" placeholder="Your message"> </textarea>
+                <span asp-validation-for="Emails.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Send" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

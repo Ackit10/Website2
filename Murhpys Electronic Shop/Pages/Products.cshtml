@@ -1,0 +1,91 @@
+﻿@page
+@model Murhpys_Electronic_Shop.Pages.ProductsModel
+@{ViewData["Title"] = "Products";
+}
+<style>
+    a {
+        text-decoration: none;
+        color:black;
+    }
+</style>
+<div id="ProductList" class = "container">
+<h1>Product List</h1>
+<hr />
+<br />
+<h2>Computers and Laptops</h2>
+<hr />
+<div class="row row-cols-6">
+    <br />
+    @{ var laptoplist = from item in Model.Items where item.Section == 0 select item;
+        foreach (var item in laptoplist)
+        {
+            <a asp-page="/Details" asp-route-id="@item.Id">
+            <div class="card" style="width: 12rem;">
+                <img src="@item.PhotoPath" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-text">@item.Name</h4>
+                </div>
+            </div>
+            </a>
+        }
+    }
+</div>
+<h2>Phones and Tablets</h2>
+   <hr />
+<div class="row row-cols-6">
+    <br />
+    @{ var phonelist = from item in Model.Items where item.Section == 1 select item;
+        foreach (var item in phonelist)
+        {
+            <a asp-page="/Details" asp-route-id="@item.Id">
+            <div class="card" style="width: 12rem;">
+                <img src="@item.PhotoPath" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-text">@item.Name</h4>
+                
+                </div>
+            </div>
+            </a>
+        }
+    }
+    
+</div>
+<h2>Computer's parts</h2>
+<hr />
+<div class="row row-cols-6">
+    <br />
+    @{ var partlist = from item in Model.Items where item.Section == 2 select item;
+        foreach (var item in partlist)
+        {
+            <a asp-page="/Details" asp-route-id="@item.Id">
+            <div class="card" style="width: 12rem;">
+                <img src="@item.PhotoPath" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-text">@item.Name</h4>
+                    
+                </div>
+            </div>
+            </a>
+        }
+    }
+</div>
+<h2>Accesuars</h2>
+<hr />
+<div class="row row-cols-6">
+    <br />
+    @{ var accesuarslist = from item in Model.Items where item.Section == 3 select item;
+        foreach (var item in accesuarslist)
+        {
+            <a asp-page="/Details" asp-route-id="@item.Id">
+            <div class="card" style="width: 12rem;">
+                <img src="@item.PhotoPath" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-text">@item.Name</h4>
+                    
+                </div>
+            </div>
+            </a>
+        }
+    }
+</div>
+</div>

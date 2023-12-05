@@ -1,0 +1,30 @@
+@page
+@model Murhpys_Electronic_Shop.Pages.EmailsDatabase.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class = "AdminPanel">
+
+<div>
+    <h2>Email</h2>
+    <hr />
+    <dl class="row">
+        <dd class="col-sm-10">
+           Full Name: @($"{Model.Emails.FirstName} {Model.Emails.LastName}")
+        </dd>
+        <dd class="col-sm-10">
+            Email: @Html.DisplayFor(model => model.Emails.Email)
+        </dd>
+        <dd class="col-sm-10">
+            Message:
+            @Html.DisplayFor(model => model.Emails.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class = "btn btn-danger" asp-page="./Delete" asp-route-id="@Model.Emails?.Id">Delete</a> |
+    <a class = "btn btn-info" asp-page="./Index">Back to List</a>
+</div>
+</div>

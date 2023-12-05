@@ -1,0 +1,62 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div id="IndexPage">
+    
+    <div class="text-center">
+        <h1>Welcome to our Electronic Store</h1>
+        <p>At Murphys electronic shop, we're dedicated to providing you with the latest and greatest in electronic innovations. 
+            Our passion for cutting-edge technology drives us to curate
+             a selection of premium products that elevate your lifestyle and keep you at the forefront of innovation.
+
+        <p>Explore our diverse range of products, meticulously chosen to cater to your needs.
+             From state-of-the-art smartphones and sleek laptops to immersive home entertainment systems and smart home solutions, 
+             we've got it all. Our collection boasts top brands known for their reliability, performance, and innovation.</p>
+    </div>
+        <h2 style = "padding:2%;">Our Best Products</h2>
+       <div class="row">
+        <div class = "col">
+            <a asp-page="/Details" asp-route-id="@Model.Items[0].Id">
+            <div class="card" style="width: 12rem;">
+                <img src="@Model.Items[0].PhotoPath" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-text">@Model.Items[0].Name</h4>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class = "col">
+            <a asp-page="/Details" asp-route-id="@Model.Items[3].Id">
+            <div class="card" style="width: 12rem;">
+                <img src="@Model.Items[3].PhotoPath" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-text">@Model.Items[3].Name</h4>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class = "col">
+            <a asp-page="/Details" asp-route-id="@Model.Items[2].Id">
+            <div class="card" style="width: 12rem;">
+                <img src="@Model.Items[2].PhotoPath" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-text">@Model.Items[2].Name</h4>
+                </div>
+            </div>
+            </a>
+        </div>
+       </div>
+        
+            
+        <p>Join our community of tech enthusiasts and experience the future today.
+             Follow our blog for the latest tech trends, insightful reviews,
+              and handy tips to make the most out of your gadgets.
+        </p>
+        <a id="IndexButton" class = "btn btn-warning" asp-page="/Products" > Start Shopping </a>
+    </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,60 @@
+@page
+@model Murhpys_Electronic_Shop.Pages.AdminField.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div id = "AdminForm" class = "card">
+<h1>Create Product</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Items.Name" class="control-label"></label>
+                <input asp-for="Items.Name" class="form-control" />
+                <span asp-validation-for="Items.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Items.Description" class="control-label"></label>
+                <input asp-for="Items.Description" class="form-control" />
+                <span asp-validation-for="Items.Description" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="file" asp-for="UploadedFile" />
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="Items.Section" class="control-label"></label>
+                <select asp-for="Items.Section" class="form-control" id="ItemSection">
+                    <option value="">-- Select Section --</option>
+                    <option value="0">Computers and Laptops</option>
+                    <option value="1">Phones and Tablets</option>
+                    <option value="2">Computer parts</option>
+                    <option value="3">Accesuars</option>
+                </select>
+                <span asp-validation-for="Items.Section" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Items.Price" class="control-label"></label>
+                <input asp-for="Items.Price" class="form-control" />
+                <span asp-validation-for="Items.Price" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group col-1">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div class = "col-2">
+    <a class = "btn btn-primary" class asp-page="Index">Back to List</a>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

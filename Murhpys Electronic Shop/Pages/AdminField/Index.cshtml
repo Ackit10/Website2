@@ -1,0 +1,87 @@
+@page
+@model Murhpys_Electronic_Shop.Pages.AdminField.IndexModel
+
+@{
+    ViewData["Title"] = "AdminPanel";
+}
+<div class="AdminPanel">
+<h1>Admin Panel</h1>
+
+<div class="row">
+    <a asp-page="./Create" class="btn btn-info col-2">Create</a>
+    <dir class = "col-1"></dir>
+    <a asp-page="/EmailsDatabase/Index" class="btn btn-warning col-2">Emails</a>
+</div>
+<br />
+<h2>Computers and Laptops</h2>
+<div class="row row-cols-3">
+    @{ var laptoplist = from item in Model.Items where item.Section == 0 select item;
+        foreach (var item in laptoplist)
+        {
+            <div class="card" style="width: 18rem;">
+                <img src="@item.PhotoPath" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-text">@item.Name</h4>
+                    <a asp-page="./Edit" asp-route-id="@item.Id"><button class="btn btn-primary">Edit</button></a>
+                    <a asp-page="./Details" asp-route-id="@item.Id"><button class="btn btn-info">Details</button></a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id"><button class="btn btn-danger">Delete</button></a>
+                </div>
+            </div>
+        }
+    }
+</div>
+<h2>Phones and Tablets</h2>
+<div class="row row-cols-3">
+    @{ var phonelist = from item in Model.Items where item.Section == 1 select item;
+        foreach (var item in phonelist)
+        {
+            <div class="card" style="width: 18rem;">
+                <img src="@item.PhotoPath" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-text">@item.Name</h4>
+                   
+                    <a asp-page="./Edit" asp-route-id="@item.Id"><button class="btn btn-primary">Edit</button></a>
+                    <a asp-page="./Details" asp-route-id="@item.Id"><button class="btn btn-info">Details</button></a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id"><button class="btn btn-danger">Delete</button></a>
+                </div>
+            </div>
+        }
+    }
+</div>
+<h2>Computer's parts</h2>
+<div class="row row-cols-3">
+    @{ var partlist = from item in Model.Items where item.Section == 2 select item;
+        foreach (var item in partlist)
+        {
+            <div class="card" style="width: 18rem;">
+                <img src="@item.PhotoPath" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-text">@item.Name</h4>
+                    
+                    <a asp-page="./Edit" asp-route-id="@item.Id"><button class="btn btn-primary">Edit</button></a>
+                    <a asp-page="./Details" asp-route-id="@item.Id"><button class="btn btn-info">Details</button></a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id"><button class="btn btn-danger">Delete</button></a>
+                </div>
+            </div>
+        }
+    }
+</div>
+<h2>Accesuars</h2>
+<div class="row row-cols-3">
+    @{ var accesuarslist = from item in Model.Items where item.Section == 3 select item;
+        foreach (var item in accesuarslist)
+        {
+            <div class="card" style="width: 18rem;">
+                <img src="@item.PhotoPath" class="card-img-top">
+                <div class="card-body">
+                    <h4 class="card-text">@item.Name</h4>
+                    
+                    <a asp-page="./Edit" asp-route-id="@item.Id"><button class="btn btn-primary">Edit</button></a>
+                    <a asp-page="./Details" asp-route-id="@item.Id"><button class="btn btn-info">Details</button></a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id"><button class="btn btn-danger">Delete</button></a>
+                </div>
+            </div>
+        }
+    }
+</div>
+</div>

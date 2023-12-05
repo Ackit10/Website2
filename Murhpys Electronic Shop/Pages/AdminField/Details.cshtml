@@ -1,0 +1,77 @@
+@page
+@model Murhpys_Electronic_Shop.Pages.AdminField.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div id = "AdminForm" class = "card">
+<h1>Details</h1>
+    <img src="@Model.Items.PhotoPath" class = "card-img-top">
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Items.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Items.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Items.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Items.Description)
+        </dd>
+        
+        <dt class="col-sm-2">
+            @{
+                switch (Model.Items.Section)
+                {
+                    case 0:
+                        Html.Display("Computers and Laptops");
+                        break;
+                    case 1:
+                        Html.Display("Phones and Tablets");
+                        break;
+                    case 2:
+                        Html.Display("Computer parts");
+                        break;
+                    case 3:
+                        Html.Display("Accesuars");
+                        break;
+                }
+
+            }
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                switch (Model.Items.Section)
+                {
+                    case 0:
+                        Html.Display("Computers and Laptops");
+                        break;
+                    case 1:
+                        Html.Display("Phones and Tablets");
+                        break;
+                    case 2:
+                        Html.Display("Computer parts");
+                        break;
+                    case 3:
+                        Html.Display("Accesuars");
+                        break;
+                }
+
+            }
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Items.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Items.Price)
+        </dd>
+    </dl>
+<div>
+    <a class = "btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Items?.Id">Edit</a> |
+    <a class = "btn btn-info" asp-page="./Index">Back to List</a>
+</div>
+</div>
+</div>

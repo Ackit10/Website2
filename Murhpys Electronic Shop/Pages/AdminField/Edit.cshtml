@@ -1,0 +1,76 @@
+@page
+@model Murhpys_Electronic_Shop.Pages.AdminField.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+
+}
+<style>
+    html {
+        background-color: white;
+        background-image: none;
+    }
+</style>
+<div id = "AdminForm" class = "card">
+<h1>Edit</h1>
+
+<h4>Items</h4>
+<hr />
+<div class="row">
+    <div class="col-lg-4">
+        <form enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Items.Id" />
+            <div class="form-group">
+                <label asp-for="Items.Name" class="control-label"></label>
+                <input asp-for="Items.Name" class="form-control" />
+                <span asp-validation-for="Items.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Items.Description" class="control-label"></label>
+                <input asp-for="Items.Description" class="form-control" />
+                <span asp-validation-for="Items.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <dl>
+                    <dt>
+                        <label asp-for="Items.PhotoPath"></label>
+                    </dt>
+                    <dd>
+                        <input asp-for="Items.PhotoPath" type="file">
+                        <span asp-validation-for="Items.PhotoPath"></span>
+                    </dd>
+                </dl>
+                <input asp-page-handler="Upload" class="btn" type="submit" value="Upload" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Items.Section" class="control-label"></label>
+                <select asp-for="Items.Section" class="form-control" id="ItemSection">
+                    <option value="">-- Select Section --</option>
+                    <option value="0">Computers and Laptops</option>
+                    <option value="1">Phones and Tablets</option>
+                    <option value="2">Computer parts</option>
+                    <option value="3">Accesuars</option>
+                </select>
+                <span asp-validation-for="Items.Section" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Items.Price" class="control-label"></label>
+                <input asp-for="Items.Price" class="form-control" />
+                <span asp-validation-for="Items.Price" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+    <br />
+<div>
+    <a class = "btn btn-primary" asp-page="./Index">Back to List</a>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
